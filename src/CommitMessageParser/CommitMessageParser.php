@@ -84,7 +84,7 @@ final class CommitMessageParser implements CommitMessageParserInterface
      */
     private function getTitle(string $line): string
     {
-        $title = preg_replace("/\[(.*)]|[#@]\S*/", "", $line);
+        $title = preg_replace("/\[[^\]]*\]|\s*[@#][^\s]+/", "", $line);
 
         return trim((string) $title);
     }
